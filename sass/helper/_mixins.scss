@@ -1,0 +1,62 @@
+$white: #fff;
+$black: #000;
+$color-brand: #E50914;
+$color-dot-inactive: #862d31;
+
+$font-size_best_movie_title: 3rem;
+$font-weight_best_movie_title: 900;
+
+$font-size_title: 2.5rem;
+$font-weight_title: 900;
+
+$font-size_plot: 1.5rem;
+$font-weight_plot: 500;
+
+$font-size_category: 2rem;
+$font-weight_category: 700;
+
+$size-translate_x: 10%;
+$size-translate_y: 5%;
+$height-btn_play: 3rem;
+
+
+@mixin button($color: $white, $background-color: $black, $height: 2em) {
+    font-family: 'Lato', sans-serif;
+    height: $height;
+    width: 6rem;
+    margin: 0.6rem 0.3rem;
+    line-height: $height;
+    text-align: center;
+    font-weight: 600;
+    background-color: $background-color;
+    color: $color;
+    border-radius: 12px;
+    user-select: none;
+}
+
+@mixin text($size, $weight) {
+    font-size: $size;
+    margin: 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    color: white;
+    font-weight: $weight;
+    font-family: 'Lato', sans-serif;
+    user-select: none;
+}
+
+
+@mixin carousel__btn {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -40px;
+    padding: 1%;
+    color: $color-brand;
+    font-weight: bold;
+    font-size: 45px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}

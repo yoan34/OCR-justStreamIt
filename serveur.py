@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from flask import Flask, render_template
+from data import movie, categories
 app = Flask(__name__)
 
 
@@ -16,7 +17,14 @@ objectif = "L'objectif de ce projet est d'intéragir avec une API Rest et le fro
 
 @app.route("/")
 def index():
-    return render_template("index.html", texte = messageBienvenue, message = objectif )
+    movie["categories"] = categories
+    for m in movie:
+        print(m)
+    return render_template("home.html", **movie)
+
+@app.route("/categories")
+def _categories():
+    return render_template("categories.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

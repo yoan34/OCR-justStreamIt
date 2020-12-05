@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>JustStreamIt</title>
+    <link rel="stylesheet" href="../static/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <header class='header'>
+        <a class="header__link--brand" href="http://127.0.0.1:5000/">
+            JustStreamIt
+        </a>
+        <div class="header__container-link">
+            <a class="header__link active" href="http://127.0.0.1:5000/">
+                Accueil
+            </a>
+            <a class="header__link" href="http://127.0.0.1:5000/categories">
+                Catégories
+            </a>
+        </div>
+    </header>
+
+    <section class="best-movie">
+        <div class="best-movie__info">
+            <h1 class="best-movie__title">Meilleur film</h1>
+            <h1 class="best-movie__info__title">{{ Title }}</h1>
+            
+            <div class="best-movie__info__btn">Play</div>
+            <p class="best-movie__info__plot">{{ Plot }}</p>
+        </div>
+        <img class="best-movie__info__img" src={{ Poster }} />
+    </section>
+
+    {% for category in categories %}
+    <div class="category">
+        <h1 class="category__title"> {{ category }}</h1>
+
+        <div class="category__carousel-wrapper">
+            <div class="category__carousel">
+                {% for img in categories[category] %}
+
+                <div class="category__container">
+                    <img class="category__img" src={{ img }} />
+                </div>
+
+                {% endfor %}
+            </div>
+        </div>
+        
+        <div class="category__carousel__prev">&#10094;</div>
+        <div class="category__carousel__next">&#10095;</div>
+
+
+        <div class="category__container__dot">
+            <span class="category__carousel__dot active"></span>
+            <span class="category__carousel__dot"></span>
+            <span class="category__carousel__dot"></span>
+        </div>
+  
+    </div>
+    {% endfor %}
+
+    <footer class='footer'>
+        <a class="footer__link" href="http://127.0.0.1:5000/">
+            JustStreamIt
+        </a>
+    </footer>
+
+
+
+  </body>
+  <script src="static/js/script.js"></script>
+</html>

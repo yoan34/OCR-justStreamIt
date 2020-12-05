@@ -1,0 +1,33 @@
+@import '../helper/mixins';
+
+.header {
+    background-color: black;
+    display: flex;
+    justify-content: space-evenly;
+    opacity: 90%;
+
+    // border-bottom: 1px solid $white;
+
+    &__container-link {
+        width: 12rem;
+        margin-right: 4rem;
+        display: flex;
+        justify-content: space-around;
+    }
+    &__link {
+        @include button;
+        
+
+        &.active {
+            background-color: #E50914;
+        }
+        &--brand {
+            @include button($color-brand);
+        }
+
+        &:hover {
+            border: 1px solid #E50914;
+            color: white;
+        }
+    }
+}

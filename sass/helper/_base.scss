@@ -1,0 +1,19 @@
+a, a:active {
+    text-decoration: none;
+    color: inherit;
+    border: solid 1px black;
+}
+body {
+    margin: 0;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
