@@ -3,7 +3,7 @@
 .category {
     position: relative;
     background-color: black;
-    padding-top: 2.5rem;
+    padding-top: 3rem;
     text-align: center;
     user-select: none;
     &__title {
@@ -74,6 +74,9 @@
         }
         &.leave {
             animation: _translate_reverse 0.2s cubic-bezier(0.8,-0.04, 0.35, 1.01) forwards;
+        }
+        &:hover {
+            cursor: pointer;
         }
     }
 }

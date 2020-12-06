@@ -18,8 +18,6 @@ objectif = "L'objectif de ce projet est d'intéragir avec une API Rest et le fro
 @app.route("/")
 def index():
     movie["categories"] = categories
-    for m in movie:
-        print(m)
     return render_template("home.html", **movie)
 
 @app.route("/categories")

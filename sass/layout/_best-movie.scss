@@ -1,14 +1,24 @@
 @import '../helper/mixins';
 
 .best-movie {
-    padding: 80px 150px;
+    padding: 100px 150px;
     background-color: black;
     display: flex;
     justify-content: center;
 
     &__title {
+        position: relative;
         @include text($font-size_best_movie_title, $font-weight_best_movie_title);
+        &__logo {
+            position: absolute;
+            top: 0%;
+            left: -30%;
+            width: 5.5rem;
+            height: 5.5rem;
+            transform: rotate(-8deg);
+        }
     }
+
 
     &__info {
         width: 20rem;
@@ -39,6 +49,10 @@
             width: 30rem;
             max-width: 30rem;
             object-fit: cover;
+            user-select: none;
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
 }
