@@ -1,99 +1,109 @@
 @import '../helper/mixins';
 
-.category {
+.carousel {
+    width: 100%;
     position: relative;
-    background-color: black;
-    padding-top: 3rem;
-    text-align: center;
+    left: 0px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(20,20,20);
     user-select: none;
+
     &__title {
-        @include text($font-size_category, $font-weight_category);
-        user-select: none;
+        font-family: 'Lato', sans-serif;
+        color: white;
+        margin-bottom: 0.3rem;
+
+        align-self: center;
+        width: 95%;
+        @media (min-width: 992px) {
+            width: 87.5%;
+        }
+        @media (min-width: 1200px) {
+            width: 75%;
+        }
     }
-    &__carousel-wrapper {
+
+    &__wrapper {
         position: relative;
-        overflow: hidden;
-        margin: 0 auto;
-        padding: 2rem 0 1rem 0;
-        opacity: 0.5;
-        width: 90%;
-        height: 370px;
+
+        align-self: center;
+        width: 95%;
+        @media (min-width: 992px) {
+            width: 87.5%;
+        }
+        @media (min-width: 1200px) {
+            width: 75%;
+        }
     }
 
-    &__carousel {
-        position: absolute;
-        width: 300%;
-        left: 0px;
+    &__items {
         display: flex;
-        flex-direction: row;
+        width: 100%;
 
-        &__prev {
-            @include carousel__btn;
-            left:1%;
-        }
-        &__next {
-            @include carousel__btn;
-            right: 1%;
-            border-radius: 3px 0 0 3px;
-        }
-        &__dot {
-            cursor: pointer;
-            height: 15px;
-            width: 15px;
-            margin: 0 2px;
-            background-color: $color-dot-inactive;
-            border-radius: 50%;
-            display: inline-block;
-            transition: background-color 0.6s ease;
-            &.active {
-                background-color: $color-brand;
+        &__image {
+            display: block;
+            width: 50%;
+            &:nth-child(3), &:nth-child(4), &:nth-child(5) {
+                display: none;
             }
+            @media (min-width: 361px) {
+                width: 33.33%;
+                &:nth-child(3) {
+                    display: initial;
+                }
+            }
+            @media (min-width: 577px) {
+                width: 25%;
+                &:nth-child(4) {
+                    display: initial;
+                }
+            }
+            @media (min-width: 1200px) {
+                width: 20%;
+                &:nth-child(5) {
+                    display: initial;
+                }
+            }
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+
+    &__btn {
+        position: absolute;
+        height: inherit;
+        color: white;
+        font-size: 3rem;
+        font-weight: bold;
+        text-align: center;
+        height: auto;
+
+        @media (min-width: 576px) {
+            font-size: 4rem;
+        }
+        @media (min-width: 1200px) {
+            font-size: 5rem;
         }
         
 
-    }
-    &__container {
-        margin: 0 0.3%;
-        margin-bottom: 30px;
-        height: 370px;
-        background-color: $color-brand;
-        user-select: none;
-        &__dot {
-            text-align:center;
-            padding-bottom: 1.5rem;
+        &.right {
+            top: 37%;
+            right: -2.5%;
+            @media (min-width: 992px) {
+                top: 35%;
+                right: -6.5%;
+            }
         }
-    }
-
-    &__img {
-        max-width: 100%;
-        height: auto;
-        user-select: none;
-        object-fit: cover;
-        &.enter {
-            animation: _translate 0.2s cubic-bezier(0.8,-0.04, 0.35, 1.01) forwards;
-        }
-        &.leave {
-            animation: _translate_reverse 0.2s cubic-bezier(0.8,-0.04, 0.35, 1.01) forwards;
-        }
-        &:hover {
-            cursor: pointer;
+        &.left {
+            top: 37%;
+            left: -2.5%;
+            @media (min-width: 992px) {
+                top: 35%;
+                left: -6.5%;
+            }
         }
     }
 }
 
-@keyframes _translate {
-    0% {
-        transform: translate(0, 0);
-    }
-    100% {
-        transform: translate($size-translate_x, -$size-translate_y);
-    }
-}
-@keyframes _translate_reverse {
-    0% {
-        transform: translate($size-translate_x, -$size-translate_y);
-    }
-    100% {
-        transform: translate(0, 0);
-    }
-}

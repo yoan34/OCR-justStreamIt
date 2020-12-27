@@ -2,10 +2,11 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>JustStreamIt</title>
     <link rel="stylesheet" href="../static/style.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
   </head>
 
   <body>
@@ -23,7 +24,7 @@
         </div>
     </header>
 
-    <section class="best-movie">
+    <!-- <section class="best-movie">
         <div class="best-movie__info">
             <h1 class="best-movie__title">
                 Best Movie
@@ -35,49 +36,38 @@
             <p class="best-movie__info__plot">{{ Plot }}</p>
         </div>
         <img class="best-movie__info__img" id_movie="hulk" src={{ Poster }} />
-    </section>
+    </section> -->
+
 
     {% for category in categories %}
-    <div class="category">
-        <h1 class="category__title"> {{ category }}</h1>
-
-        <div class="category__carousel-wrapper">
-            <div class="category__carousel">
-                {% for img in categories[category] %}
-
-                <div class="category__container">
-                    <img class="category__img" id_movie="hulk" src={{ img }} />
+        <section class="carousel">
+            <h2 class="carousel__title"> {{ category }}</h2>
+            <div class="carousel__wrapper">
+                <div class="carousel__items">
+                    <img class="carousel__items__image" src={{ categories[category][0] }} alt="movie" />
+                    <img class="carousel__items__image" src={{ categories[category][1] }} alt="movie" />
+                    <img class="carousel__items__image" src={{ categories[category][2] }} alt="movie" />
+                    <img class="carousel__items__image" src={{ categories[category][3] }} alt="movie" />
+                    <img class="carousel__items__image" src={{ categories[category][4] }} alt="movie" />
                 </div>
-
-                {% endfor %}
+                <div class="carousel__btn left"><</div>
+                <div class="carousel__btn right">></div>
             </div>
-        </div>
-
-        <div class="category__carousel__prev">&#10094;</div>
-        <div class="category__carousel__next">&#10095;</div>
-
-
-        <div class="category__container__dot">
-            <span class="category__carousel__dot active"></span>
-            <span class="category__carousel__dot"></span>
-            <span class="category__carousel__dot"></span>
-        </div>
-  
-    </div>
+        </section>
     {% endfor %}
+    
 
-    {% include 'modal.html' %}
+    <!-- {% include 'modal.html' %}
 
     <footer class='footer'>
         <a class="footer__link" href="http://127.0.0.1:5000/">
             JustStreamIt
         </a>
-    </footer>
-
+    </footer> -->
 
 
   </body>
   <script src="static/js/animation_img.js"></script>
   <script src="static/js/carousel.js"></script>
-  <script src="static/js/modal.js"></script>
+  <!-- <script src="static/js/modal.js"></script> -->
 </html>

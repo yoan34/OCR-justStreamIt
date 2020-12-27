@@ -1,10 +1,14 @@
+@import './variables';
+
 a, a:active {
     text-decoration: none;
     color: inherit;
     border: solid 1px black;
 }
+
 body {
-    margin: 0;
+    // background-color: $primary-background-color;
+    background-color: rgb(20,20,20);
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
