@@ -3,7 +3,6 @@
 .carousel {
     width: 100%;
     position: relative;
-    left: 0px;
     display: flex;
     flex-direction: column;
     background-color: rgb(20,20,20);
@@ -15,56 +14,60 @@
         margin-bottom: 0.3rem;
 
         align-self: center;
-        width: 95%;
-        @media (min-width: 992px) {
-            width: 87.5%;
-        }
-        @media (min-width: 1200px) {
-            width: 75%;
-        }
+        width: 100%;
     }
 
     &__wrapper {
         position: relative;
 
         align-self: center;
-        width: 95%;
-        @media (min-width: 992px) {
-            width: 87.5%;
-        }
-        @media (min-width: 1200px) {
-            width: 75%;
-        }
+        width: auto;
     }
 
     &__items {
         display: flex;
-        width: 100%;
+        position: relative;
+        flex-direction: row;
+        justify-content: center;
 
-        &__image {
-            display: block;
-            width: 50%;
-            &:nth-child(3), &:nth-child(4), &:nth-child(5) {
+        &__container {
+            width: 225px;
+            height: 350px;
+            overflow: hidden;
+
+            &:nth-child(2), &:nth-child(3), &:nth-child(4), &:nth-child(5),
+            &:nth-child(6),&:nth-child(7) {
                 display: none;
             }
-            @media (min-width: 361px) {
-                width: 33.33%;
+            @media (max-height: 540px) {
+                height: 225px;
+            }
+            @media (min-width: 540px) {
+                &:nth-child(2) {
+                    display: initial;
+                }
+            }
+            @media (min-width: 800px) {
                 &:nth-child(3) {
                     display: initial;
                 }
             }
-            @media (min-width: 577px) {
-                width: 25%;
+            @media (min-width: 1300px) {
                 &:nth-child(4) {
                     display: initial;
                 }
             }
-            @media (min-width: 1200px) {
-                width: 20%;
+            @media (min-width: 1600px) {
                 &:nth-child(5) {
                     display: initial;
                 }
             }
+        }
+
+        &__image {
+            width: 100%;
+            object-fit: cover;
+            
             &:hover {
                 transform: scale(1.05);
             }
@@ -75,33 +78,43 @@
         position: absolute;
         height: inherit;
         color: white;
-        font-size: 3rem;
+        font-size: 2rem;
         font-weight: bold;
         text-align: center;
         height: auto;
 
-        @media (min-width: 576px) {
+        @media (min-width: 321px) {
+            font-size: 3rem;
+        }
+        @media (min-width: 541px) {
             font-size: 4rem;
         }
         @media (min-width: 1200px) {
             font-size: 5rem;
         }
         
-
         &.right {
-            top: 37%;
-            right: -2.5%;
-            @media (min-width: 992px) {
-                top: 35%;
-                right: -6.5%;
+            top: 50%;
+            right: -40px;
+            transform: translateY(-25%);
+
+            @media (min-width: 640px) {
+                right: -60px;
+            }
+            @media (min-width: 1200px) {
+                right: -100px;
             }
         }
         &.left {
-            top: 37%;
-            left: -2.5%;
-            @media (min-width: 992px) {
-                top: 35%;
-                left: -6.5%;
+            top: 50%;
+            left: -40px;
+            transform: translateY(-25%);
+
+            @media (min-width: 640px) {
+                left: -60px;
+            }
+            @media (min-width: 1300px) {
+                left: -100px;
             }
         }
     }

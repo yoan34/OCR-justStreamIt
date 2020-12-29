@@ -1,59 +1,17 @@
 <section class="modal">
     <div class="modal__content">
-
-        <div class="modal__content__header">
-            <div class="modal__content__header__info">
-                <p>{{ Runtime }}</p>
-                <img class="modal__content__header__img--time" src="../static/img/time.png" />
+        <div class="modal__header">
+            <h1 class="modal__header__title">Titre</h1>
+            <div class="modal__header__close">
+                <img class="modal__header__close__img" src="../static/img/cancel.png"  alt="close" />
             </div>
-            <h1 class="modal__content__header__title">{{Title}}</h1>
-            <div class="modal__content__header__info">
-                <img class="modal__content__header__img--star" src="../static/img/star.png" />
-                <p>{{ imdbRating }}</p>
-            </div>
-            <div class="modal__content__header__close">&times;</div>
         </div>
 
-        <div class="modal__content__body">
-            <div class="modal__content__body__info1">
-
-                <div class="modal__content__body__info1__container">
-                    <p class="modal__content__body__info1__genre">Genre: {{ Genre }}</p>
-                    <div class="modal__content__body__info1__country">
-                        <img class="modal__content__body__info1__country__img"
-                            src= "../static/img/flag.png" />
-                        <p class="modal__content__body__info1__country__p">{{ Country }}</p>
-                    </div>
-                </div>
-                <p class="modal__content__body__info1__date">
-                    Released on {{ Released }} by the director {{ Director }}.
-                </p>
-
-                <h1 class="modal__content__body__info1__actors__title">Main actors:</h1>
-                {% for actor in Actors %}
-                    <p class="modal__content__body__info1__actors__contain">
-                        {{ actor }}
-                    </p>
-                {% endfor %}
-
-                <h1 class="modal__content__body__info1__ratings__title">Ratings:</h1>
-                {% for rate in Ratings %}
-                    <p class="modal__content__body__info1__ratings__contain">
-                        {{ rate['Value'] }} for {{ rate['Source'] }}
-                    </p>
-                {% endfor %}
-                <p class="modal__content__body__info1__boxOffice"> Box Office: {{ BoxOffice }}</p>
-                <div class="modal__content__body__info1__btn">Play</div>
-            </div>
-            
-            <div class="modal__content__body__info2">
-                <img class="modal__content__body__info2__img"
-                    src="https://m.media-amazon.com/images/M/MV5BMTkxNDk5MDQ2MF5BMl5BanBnXkFtZTYwMTA0Nzc2._V1_SX300.jpg" />
-                <p class="modal__content__body__info2__plot">
-                    {{ Plot }}
-                </p>
+        <div class="modal__section1">
+            <p class="modal__section1__plot"></p>
+            <div class="modal__section1__container">
+                <img class="modal__section1__img" alt="movie" />
             </div>
         </div>
     </div>
-    
 </section>

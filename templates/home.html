@@ -40,15 +40,16 @@
 
 
     {% for category in categories %}
+
         <section class="carousel">
-            <h2 class="carousel__title"> {{ category }}</h2>
             <div class="carousel__wrapper">
+                <h2 class="carousel__title"> {{ category }}</h2>
                 <div class="carousel__items">
-                    <img class="carousel__items__image" src={{ categories[category][0] }} alt="movie" />
-                    <img class="carousel__items__image" src={{ categories[category][1] }} alt="movie" />
-                    <img class="carousel__items__image" src={{ categories[category][2] }} alt="movie" />
-                    <img class="carousel__items__image" src={{ categories[category][3] }} alt="movie" />
-                    <img class="carousel__items__image" src={{ categories[category][4] }} alt="movie" />
+                    {% for data in categories[category] %}
+                        <div class="carousel__items__container">
+                            <img id={{ data[0] }}  class="carousel__items__image" src={{ data[1] }} alt="movie" />
+                        </div>
+                    {% endfor %}
                 </div>
                 <div class="carousel__btn left"><</div>
                 <div class="carousel__btn right">></div>
@@ -57,9 +58,9 @@
     {% endfor %}
     
 
-    <!-- {% include 'modal.html' %}
+    {% include 'modal.html' %}
 
-    <footer class='footer'>
+    <!-- <footer class='footer'>
         <a class="footer__link" href="http://127.0.0.1:5000/">
             JustStreamIt
         </a>
@@ -69,5 +70,5 @@
   </body>
   <script src="static/js/animation_img.js"></script>
   <script src="static/js/carousel.js"></script>
-  <!-- <script src="static/js/modal.js"></script> -->
+  <script src="static/js/modal.js"></script>
 </html>

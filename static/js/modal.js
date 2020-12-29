@@ -1,38 +1,39 @@
 let modal = document.querySelector('.modal');
-modal.style.display = 'none';
-let close = modal.querySelector('.modal__content__header__close');
-let pictures = document.querySelectorAll('.category__img');
+let images = document.querySelectorAll('.carousel__items__image');
 
-close.addEventListener('click', () => modal.style.display = 'none');
+const openModal = (event) => {
+    modal.style.display = 'block';
+    let url = `http://localhost:8000/api/v1/titles/${event.target.id}`;
 
-window.addEventListener('click', (event) => {
+    // Fonction qui permet de changer dynamiquement le modal lors d'une requête avec 'fetch'.
+    const writeOnModal = data => {
+        let title = document.querySelector('.modal__header__title');
+        title.textContent = data['title']
+        let image = document.querySelector('.modal__section1__img');
+        image.src = data['image_url']
+        let plot = document.querySelector('.modal__section1__plot');
+        plot.textContent = data['description'];
+
+
+        console.log(data)
+    }
+
+    // Utilise 'fetch' pout faire une requête sur l'API en 
+    // utilisant l'ID du film.
+    fetch(url)
+        .then(response => response.json())
+        .then(data => writeOnModal(data))
+        .catch(error => console.log(error))
+
+}
+
+for (let i = 0; i < images.length; i++) {
+    images[i].addEventListener('click', (e) => openModal(e))
+}
+
+
+window.onclick = (event) => {
     if (event.target == modal) {
         modal.style.display = 'none';
     }
-})
-
-let items = [];
-
-items.push(document.querySelector('.best-movie__info__img'));
-items.push(document.querySelector('.best-movie__info__btn'));
-
-for (let i = 0; i < pictures.length; i++) {
-    items.push(pictures[i])
-}
-
-
-const onClickMovieImg = (event) => {
-    let id = event.target.attributes['id_movie'].value;
-    // requete AJAX avec l'API et l'ID du film pour récupérér
-    // les informations et les mettres dans le modal.
-
-    // Remplacer dans le modal les 'string' par les variables.
-    // peu être je peux modifier le modal directement ici avec le JSON de la requete AJAX.
-    console.log("id: " + id)
-    modal.style.display='';
-
-}
-
-for (let i = 0; i < items.length; i++) {
-    items[i].addEventListener('click', (event) => onClickMovieImg(event));
 }

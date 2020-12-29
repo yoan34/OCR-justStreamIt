@@ -37,7 +37,12 @@ p {
 .header__link--brand {
   color: #E50914;
   font-family: "Lato", sans-serif;
-  margin: 0 1.5rem;
+  margin: 0 0.5rem;
+}
+@media (min-width: 321px) {
+  .header__link--brand {
+    margin: 0 1.5rem;
+  }
 }
 .header__link.active {
   color: #ececec;
@@ -46,7 +51,6 @@ p {
 .carousel {
   width: 100%;
   position: relative;
-  left: 0px;
   display: flex;
   flex-direction: column;
   background-color: #141414;
@@ -57,67 +61,55 @@ p {
   color: white;
   margin-bottom: 0.3rem;
   align-self: center;
-  width: 95%;
-}
-@media (min-width: 992px) {
-  .carousel__title {
-    width: 87.5%;
-  }
-}
-@media (min-width: 1200px) {
-  .carousel__title {
-    width: 75%;
-  }
+  width: 100%;
 }
 .carousel__wrapper {
   position: relative;
   align-self: center;
-  width: 95%;
-}
-@media (min-width: 992px) {
-  .carousel__wrapper {
-    width: 87.5%;
-  }
-}
-@media (min-width: 1200px) {
-  .carousel__wrapper {
-    width: 75%;
-  }
+  width: auto;
 }
 .carousel__items {
   display: flex;
-  width: 100%;
+  position: relative;
+  flex-direction: row;
+  justify-content: center;
 }
-.carousel__items__image {
-  display: block;
-  width: 50%;
+.carousel__items__container {
+  width: 225px;
+  height: 350px;
+  overflow: hidden;
 }
-.carousel__items__image:nth-child(3), .carousel__items__image:nth-child(4), .carousel__items__image:nth-child(5) {
+.carousel__items__container:nth-child(2), .carousel__items__container:nth-child(3), .carousel__items__container:nth-child(4), .carousel__items__container:nth-child(5), .carousel__items__container:nth-child(6), .carousel__items__container:nth-child(7) {
   display: none;
 }
-@media (min-width: 361px) {
-  .carousel__items__image {
-    width: 33.33%;
+@media (max-height: 540px) {
+  .carousel__items__container {
+    height: 225px;
   }
-  .carousel__items__image:nth-child(3) {
+}
+@media (min-width: 540px) {
+  .carousel__items__container:nth-child(2) {
     display: initial;
   }
 }
-@media (min-width: 577px) {
-  .carousel__items__image {
-    width: 25%;
-  }
-  .carousel__items__image:nth-child(4) {
+@media (min-width: 800px) {
+  .carousel__items__container:nth-child(3) {
     display: initial;
   }
 }
-@media (min-width: 1200px) {
-  .carousel__items__image {
-    width: 20%;
-  }
-  .carousel__items__image:nth-child(5) {
+@media (min-width: 1300px) {
+  .carousel__items__container:nth-child(4) {
     display: initial;
   }
+}
+@media (min-width: 1600px) {
+  .carousel__items__container:nth-child(5) {
+    display: initial;
+  }
+}
+.carousel__items__image {
+  width: 100%;
+  object-fit: cover;
 }
 .carousel__items__image:hover {
   transform: scale(1.05);
@@ -126,12 +118,17 @@ p {
   position: absolute;
   height: inherit;
   color: white;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
   text-align: center;
   height: auto;
 }
-@media (min-width: 576px) {
+@media (min-width: 321px) {
+  .carousel__btn {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 541px) {
   .carousel__btn {
     font-size: 4rem;
   }
@@ -142,24 +139,80 @@ p {
   }
 }
 .carousel__btn.right {
-  top: 37%;
-  right: -2.5%;
+  top: 50%;
+  right: -40px;
+  transform: translateY(-25%);
 }
-@media (min-width: 992px) {
+@media (min-width: 640px) {
   .carousel__btn.right {
-    top: 35%;
-    right: -6.5%;
+    right: -60px;
+  }
+}
+@media (min-width: 1200px) {
+  .carousel__btn.right {
+    right: -100px;
   }
 }
 .carousel__btn.left {
-  top: 37%;
-  left: -2.5%;
+  top: 50%;
+  left: -40px;
+  transform: translateY(-25%);
 }
-@media (min-width: 992px) {
+@media (min-width: 640px) {
   .carousel__btn.left {
-    top: 35%;
-    left: -6.5%;
+    left: -60px;
   }
+}
+@media (min-width: 1300px) {
+  .carousel__btn.left {
+    left: -100px;
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.modal__content {
+  position: relative;
+  background-color: red;
+  margin: auto;
+  width: 80%;
+}
+.modal__header {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.modal__header__title {
+  color: white;
+  margin: 0.5rem 0;
+  font-family: "Lato", sans-serif;
+}
+.modal__header__close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+.modal__header__close__img {
+  background-color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+}
+.modal__section1 {
+  display: flex;
+}
+.modal__section1__plot {
+  color: white;
 }
 
 /*# sourceMappingURL=style.css.map */

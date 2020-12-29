@@ -3,22 +3,14 @@
 
 from flask import Flask, render_template
 from data import movie, categories
+from requestsAPI import load_categories
 app = Flask(__name__)
 
 
-
-### Les variables à afficher dans le Front
-
-messageBienvenue = "Futur développeur Python"
-objectif = "L'objectif de ce projet est d'intéragir avec une API Rest et le front"
-
-
-### Les variables à afficher dans le Front
-
 @app.route("/")
 def index():
-    movie["categories"] = categories
-    return render_template("home.html", **movie)
+    categories = load_categories()
+    return render_template("home.html", categories=categories)
 
 @app.route("/categories")
 def _categories():
