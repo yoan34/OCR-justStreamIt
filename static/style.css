@@ -172,19 +172,48 @@ p {
 .modal {
   display: none;
   position: fixed;
+  padding-top: 20%;
   z-index: 1;
   left: 0;
   top: 0;
   overflow: auto;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.7);
+}
+@media (orientation: landscape) and (min-width: 200px) {
+  .modal {
+    padding-top: 2%;
+  }
+}
+@media (orientation: landscape) and (min-width: 992px) {
+  .modal {
+    padding-top: 7%;
+  }
 }
 .modal__content {
-  position: relative;
-  background-color: red;
-  margin: auto;
-  width: 80%;
+  background-color: #17181a;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  width: 85%;
+  user-select: none;
+}
+@media (orientation: landscape) and (min-width: 200px) {
+  .modal__content {
+    width: 95%;
+  }
+}
+@media (orientation: landscape) and (min-width: 800px) {
+  .modal__content {
+    width: 75%;
+  }
+}
+@media (orientation: landscape) and (min-width: 1200px) {
+  .modal__content {
+    width: 60%;
+  }
 }
 .modal__header {
   position: relative;
@@ -194,8 +223,14 @@ p {
 }
 .modal__header__title {
   color: white;
-  margin: 0.5rem 0;
+  margin: 1.5rem 0.5rem 0.5rem 0.5rem;
   font-family: "Lato", sans-serif;
+  text-align: center;
+}
+@media (orientation: landscape) and (min-width: 1200px) {
+  .modal__header__title {
+    font-size: 2rem;
+  }
 }
 .modal__header__close {
   position: absolute;
@@ -203,16 +238,272 @@ p {
   right: 5px;
 }
 .modal__header__close__img {
-  background-color: white;
+  background-color: #8e9092;
   border-radius: 50%;
   width: 24px;
   height: 24px;
 }
 .modal__section1 {
   display: flex;
+  flex-direction: column;
+}
+@media (orientation: landscape) {
+  .modal__section1 {
+    flex-direction: row-reverse;
+  }
+}
+.modal__section1__right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (orientation: landscape) {
+  .modal__section1__right {
+    width: 50%;
+  }
+}
+.modal__section1__left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (orientation: landscape) {
+  .modal__section1__left {
+    width: 50%;
+    margin-top: 2rem;
+  }
 }
 .modal__section1__plot {
-  color: white;
+  color: #dfdfdf;
+  width: 90%;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  order: 3;
+}
+@media (orientation: landscape) and (min-width: 1200px) {
+  .modal__section1__plot {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+}
+.modal__section1__country {
+  margin-bottom: 0.5rem;
+  color: #696a6d;
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-family: "Lato", sans-serif;
+  order: 1;
+}
+@media (orientation: landscape) and (min-width: 1200px) {
+  .modal__section1__country {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+  }
+}
+.modal__section1__genre {
+  margin: 0.5rem 0;
+  width: 90%;
+  color: #696a6d;
+  font-family: "Lato", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-align: center;
+  order: 2;
+}
+@media (orientation: landscape) and (min-width: 1200px) {
+  .modal__section1__genre {
+    font-size: 1.2rem;
+  }
+}
+.modal__section1__img {
+  width: 50%;
+  order: 2;
+  max-width: 250px;
+}
+@media (orientation: landscape) {
+  .modal__section1__img {
+    height: 70%;
+    width: auto;
+    object-fit: cover;
+  }
+}
+@media (orientation: landscape) and (min-width: 1200px) {
+  .modal__section1__img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+.modal__section1__info {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 0.3rem;
+  margin-bottom: 0.8rem;
+  order: 3;
+}
+.modal__section1__info > p {
+  margin: 0 1rem;
+  color: #696a6d;
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-family: "Lato", sans-serif;
+}
+.modal__section1__info > p:nth-child(1) {
+  color: #429b61;
+}
+@media (orientation: landscape) and (min-width: 1200px) {
+  .modal__section1__info > p {
+    font-size: 1.2rem;
+    order: 1;
+  }
+}
+.modal__section1__btn {
+  width: 90%;
+  max-width: 400px;
+  padding: 0.3rem 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background-color: #E50914;
+  border-radius: 3px;
+  order: 1;
+}
+@media (orientation: landscape) {
+  .modal__section1__btn {
+    margin: 1.5rem 0;
+    order: 4;
+  }
+}
+.modal__section1__btn__text {
+  color: #dfdfdf;
+  font-family: "Lato", sans-serif;
+  margin-left: 1.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+@media (orientation: landscape) and (min-width: 1200px) {
+  .modal__section1__btn__text {
+    font-size: 1.2rem;
+  }
+}
+.modal__section1__btn__triangle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  margin-right: 1.5rem;
+  border-style: solid;
+  border-width: 6px 0 6px 10.4px;
+  border-color: transparent transparent transparent #dfdfdf;
+}
+.modal__section1__directors {
+  margin-top: 0.5rem;
+  color: #b1aeae;
+  width: 90%;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  order: 4;
+}
+@media (orientation: landscape) and (min-width: 1200px) {
+  .modal__section1__directors {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+}
+.modal__section1__details {
+  order: 5;
+  width: 90%;
+}
+.modal__section1__summary {
+  color: #b1aeae;
+  margin-top: 0.2rem;
+  width: 90%;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  outline: none;
+}
+@media (orientation: landscape) and (min-width: 1200px) {
+  .modal__section1__summary {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+}
+.modal__section1__actors {
+  color: #b1aeae;
+  margin-top: 0.2rem;
+  width: 90%;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+}
+@media (orientation: landscape) and (min-width: 1200px) {
+  .modal__section1__actors {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+}
+.modal__section1__actors--landscape {
+  order: 5;
+  color: #b1aeae;
+  margin-top: 0.2rem;
+  width: 90%;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+}
+@media (orientation: landscape) and (min-width: 1200px) {
+  .modal__section1__actors--landscape {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+}
+.modal__section1__boxoffice__title {
+  color: #b1aeae;
+  margin-top: 0.2rem;
+  width: 90%;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  order: 6;
+}
+@media (orientation: landscape) and (min-width: 1200px) {
+  .modal__section1__boxoffice__title {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+}
+.modal__section1__boxoffice__dollars {
+  color: #429b61;
+  margin-top: 0.2rem;
+  width: 90%;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+}
+@media (orientation: landscape) and (min-width: 1200px) {
+  .modal__section1__boxoffice__dollars {
+    font-size: 1rem;
+  }
+}
+.modal__section1__rated {
+  color: #b1aeae;
+  margin-top: 0.2rem;
+  width: 90%;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  order: 7;
+}
+@media (orientation: landscape) and (min-width: 1200px) {
+  .modal__section1__rated {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

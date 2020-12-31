@@ -1,17 +1,42 @@
 <section class="modal">
     <div class="modal__content">
         <div class="modal__header">
-            <h1 class="modal__header__title">Titre</h1>
+            <h4 class="modal__header__title">Titre</h4>
             <div class="modal__header__close">
                 <img class="modal__header__close__img" src="../static/img/cancel.png"  alt="close" />
             </div>
         </div>
 
         <div class="modal__section1">
-            <p class="modal__section1__plot"></p>
-            <div class="modal__section1__container">
+            <div class="modal__section1__right">
+                <p class="modal__section1__country"></p>
                 <img class="modal__section1__img" alt="movie" />
+                <div class="modal__section1__info">
+                    <p>rate</p>
+                    <p>year</p>
+                    <p>time</p>
+                </div>
             </div>
+
+            <div class="modal__section1__left">
+                <div class="modal__section1__btn">
+                    <div class="modal__section1__btn__triangle"></div>
+                    <div class="modal__section1__btn__text">Play</div>
+                </div>
+                <p class="modal__section1__genre"></p>
+                <p class="modal__section1__plot"></p>
+                <p class="modal__section1__directors"></p>
+                <details class="modal__section1__details">
+                    <summary class="modal__section1__summary">Actors:</summary>
+                    <p class="modal__section1__actors"></p>
+                </details>
+                <p class="modal__section1__actors--landscape"></p>
+                <p class="modal__section1__boxoffice__title">
+                    Worldwide gross income: <span class="modal__section1__boxoffice__dollars"></span>
+                </p>
+                <p class="modal__section1__rated"></p>
+            </div>
+
         </div>
     </div>
 </section>
