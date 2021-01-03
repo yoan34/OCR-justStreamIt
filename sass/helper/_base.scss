@@ -3,11 +3,11 @@
 a, a:active {
     text-decoration: none;
     color: inherit;
-    border: solid 1px black;
 }
 
 body {
     // background-color: $primary-background-color;
+    margin: 0;
     background-color: rgb(20,20,20);
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */

@@ -3,14 +3,15 @@
 
 from flask import Flask, render_template
 from data import movie, categories
-from requestsAPI import load_categories
+from requestsAPI import load_categories, load_best_movie
 app = Flask(__name__)
 
 
 @app.route("/")
 def index():
-    categories = load_categories()
-    return render_template("home.html", categories=categories)
+    movie = load_best_movie()
+    categories = load_categories(movie['id'])
+    return render_template("home.html", categories=categories, movie=movie)
 
 @app.route("/categories")
 def _categories():

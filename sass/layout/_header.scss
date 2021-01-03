@@ -2,6 +2,11 @@
 
 .header {
     display: flex;
+
+    &__container-link {
+        display: flex;
+        align-items: center;
+    }
     &__link {
         color: $header-text-no-focus;
         font-family: 'Lato', sans-serif;
@@ -9,10 +14,7 @@
         &--brand {
             color: $primary-color;
             font-family: 'Lato', sans-serif;
-            margin: 0 0.5rem;
-            @media (min-width: 321px) {
-                margin: 0 1.5rem;
-            }
+            margin: 1rem 0.5rem;
         }
 
         &.active {

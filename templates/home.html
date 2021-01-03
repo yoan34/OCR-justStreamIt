@@ -25,19 +25,26 @@
         </div>
     </header>
 
-    <!-- <section class="best-movie">
-        <div class="best-movie__info">
-            <h1 class="best-movie__title">
-                Best Movie
-                <img class="best-movie__title__logo" src="../static/img/best.png" />
-            </h1>
-            <h1 class="best-movie__info__title">{{ Title }}</h1>
-            
-            <div class="best-movie__info__btn" id_movie="hulk">More</div>
-            <p class="best-movie__info__plot">{{ Plot }}</p>
-        </div>
-        <img class="best-movie__info__img" id_movie="hulk" src={{ Poster }} />
-    </section> -->
+    <section class="movie">
+            <p class="movie__title">Best Movie</p>
+            <div class="movie__section">
+                <div class="movie__container__img">
+                    <img class="movie__img" src={{ movie.img }} alt="bestmovie"/>
+                </div>
+                <div class="movie__info">
+                    <p class="movie__info__title">{{ movie.title }}</p>
+                    <p class="movie__info__genre">{{ movie.genres }}</p>
+                    <p class="movie__info__plot">{{ movie.plot }}</p>
+                    <div class="movie__info__container">
+                        <div class="movie__info__btn__play">
+                            <div class="movie__info__btn__play__triangle"></div>
+                            <p>Play</p>
+                        </div>
+                        <div class="movie__info__btn__info"><p id={{ movie.id }}>More Info</p></div>
+                    </div>
+                </div>
+            </div>
+    </section>
 
 
     {% for category in categories %}
@@ -61,15 +68,15 @@
 
     {% include 'modal.html' %}
 
-    <!-- <footer class='footer'>
+    <footer class='footer'>
         <a class="footer__link" href="http://127.0.0.1:5000/">
             JustStreamIt
         </a>
-    </footer> -->
+    </footer>
 
 
   </body>
-  <script src="static/js/animation_img.js"></script>
+  <script src="static/js/home.js"></script>
   <script src="static/js/carousel.js"></script>
   <script src="static/js/modal.js"></script>
 </html>

@@ -1,10 +1,10 @@
 a, a:active {
   text-decoration: none;
   color: inherit;
-  border: solid 1px black;
 }
 
 body {
+  margin: 0;
   background-color: #141414;
   -ms-overflow-style: none;
   /* IE and Edge */
@@ -29,6 +29,10 @@ p {
 .header {
   display: flex;
 }
+.header__container-link {
+  display: flex;
+  align-items: center;
+}
 .header__link {
   color: #a7a7a7;
   font-family: "Lato", sans-serif;
@@ -37,15 +41,224 @@ p {
 .header__link--brand {
   color: #E50914;
   font-family: "Lato", sans-serif;
-  margin: 0 0.5rem;
-}
-@media (min-width: 321px) {
-  .header__link--brand {
-    margin: 0 1.5rem;
-  }
+  margin: 1rem 0.5rem;
 }
 .header__link.active {
   color: #ececec;
+}
+
+.movie {
+  width: 100%;
+  height: 93vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background: url("../../static/img/movies_background.jpg") no-repeat center center/cover;
+}
+.movie::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.85);
+}
+.movie__section {
+  width: 100%;
+  height: 93vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+@media (orientation: landscape) and (min-width: 1px) {
+  .movie__section {
+    flex-direction: row-reverse;
+    align-items: unset;
+    justify-content: unset;
+    width: 85%;
+  }
+}
+@media (orientation: landscape) and (min-width: 800px) {
+  .movie__section {
+    flex-direction: row-reverse;
+    align-items: unset;
+    justify-content: unset;
+    width: 72.5%;
+  }
+}
+@media (orientation: landscape) and (min-width: 1200px) {
+  .movie__section {
+    flex-direction: row-reverse;
+    align-items: unset;
+    justify-content: unset;
+    width: 60%;
+  }
+}
+.movie__title {
+  color: #E50914;
+  margin-top: 0.2rem;
+  width: 90%;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  order: unset;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+  z-index: 2;
+  margin: 0.8rem 0;
+}
+.movie__container__img {
+  width: 95%;
+  height: 75%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+}
+.movie__img {
+  width: 100%;
+  max-width: 450px;
+  height: 100%;
+  object-fit: contain;
+}
+@media (orientation: landscape) and (min-width: 800px) {
+  .movie__img {
+    object-fit: contain;
+    max-width: 320px;
+  }
+}
+@media (orientation: landscape) and (min-width: 1200px) {
+  .movie__img {
+    margin-top: 2.5rem;
+    max-width: 420px;
+  }
+}
+.movie__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 70%;
+  height: 15%;
+  position: relative;
+  z-index: 2;
+}
+@media (orientation: landscape) {
+  .movie__info {
+    height: 75%;
+    justify-content: center;
+  }
+}
+.movie__info__title {
+  color: #dfdfdf;
+  font-size: 1.4rem;
+  font-weight: 700;
+  order: unset;
+  font-family: "Lato", sans-serif;
+  margin: 0.75rem 0;
+  text-align: center;
+  display: none;
+}
+@media (orientation: landscape) and (min-width: 900px) {
+  .movie__info__title {
+    font-size: 1.8rem;
+  }
+}
+.movie__info__genre {
+  color: #dfdfdf;
+  font-size: 1rem;
+  font-weight: 700;
+  order: unset;
+  font-family: "Lato", sans-serif;
+  text-align: center;
+}
+@media (orientation: landscape) and (min-width: 900px) {
+  .movie__info__genre {
+    font-size: 1.4rem;
+  }
+}
+.movie__info__plot {
+  color: #dfdfdf;
+  font-size: 0.8rem;
+  font-weight: 700;
+  order: unset;
+  font-family: "Lato", sans-serif;
+  max-width: 600px;
+  margin: 0.3rem 1.5rem;
+  text-align: center;
+  display: none;
+}
+@media (orientation: landscape) and (min-width: 900px) {
+  .movie__info__plot {
+    font-size: 1.2rem;
+    margin: 1.5rem 1.5rem;
+  }
+}
+.movie__info__container {
+  display: flex;
+  justify-content: center;
+}
+.movie__info__btn__play {
+  position: relative;
+  width: 6.5rem;
+  height: 2rem;
+  background-color: #dfdfdf;
+  margin: 0 1rem;
+  text-align: center;
+  line-height: 2rem;
+  border-radius: 4px;
+}
+@media (orientation: landscape) {
+  .movie__info__btn__play {
+    margin: 1.5rem 1rem;
+  }
+}
+.movie__info__btn__play p {
+  color: black;
+  font-size: 1rem;
+  font-weight: 700;
+  order: unset;
+  font-family: "Lato", sans-serif;
+}
+.movie__info__btn__play p:nth-of-type(1) {
+  margin-left: 1rem;
+}
+.movie__info__btn__play__triangle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  margin-right: 1.5rem;
+  border-style: solid;
+  border-width: 6px 0 6px 10.4px;
+  border-color: transparent transparent transparent black;
+  margin-left: 1rem;
+}
+.movie__info__btn__info {
+  width: 6.5rem;
+  height: 2rem;
+  background-color: #dfdfdf;
+  margin: 0 1rem;
+  text-align: center;
+  line-height: 2rem;
+  border-radius: 4px;
+}
+@media (orientation: landscape) {
+  .movie__info__btn__info {
+    margin: 1.5rem 1rem;
+  }
+}
+.movie__info__btn__info p {
+  color: black;
+  font-size: 1rem;
+  font-weight: 700;
+  order: unset;
+  font-family: "Lato", sans-serif;
 }
 
 .carousel {
@@ -169,11 +382,24 @@ p {
   }
 }
 
+.footer {
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #141414;
+}
+.footer__link {
+  color: #E50914;
+  font-family: "Lato", sans-serif;
+}
+
 .modal {
   display: none;
   position: fixed;
   padding-top: 20%;
-  z-index: 1;
+  z-index: 2;
   left: 0;
   top: 0;
   overflow: auto;
@@ -243,99 +469,99 @@ p {
   width: 24px;
   height: 24px;
 }
-.modal__section1 {
+.modal__body {
   display: flex;
   flex-direction: column;
 }
 @media (orientation: landscape) {
-  .modal__section1 {
+  .modal__body {
     flex-direction: row-reverse;
   }
 }
-.modal__section1__right {
+.modal__body__right {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 @media (orientation: landscape) {
-  .modal__section1__right {
+  .modal__body__right {
     width: 50%;
   }
 }
-.modal__section1__left {
+.modal__body__left {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 @media (orientation: landscape) {
-  .modal__section1__left {
+  .modal__body__left {
     width: 50%;
     margin-top: 2rem;
   }
 }
-.modal__section1__plot {
-  color: #dfdfdf;
+.modal__body__plot {
   width: 90%;
-  font-family: "Roboto", sans-serif;
+  color: #dfdfdf;
   font-size: 0.8rem;
   font-weight: 400;
   order: 3;
+  font-family: "Roboto", sans-serif;
 }
 @media (orientation: landscape) and (min-width: 1200px) {
-  .modal__section1__plot {
+  .modal__body__plot {
     font-size: 1rem;
     margin: 0.5rem 0;
   }
 }
-.modal__section1__country {
+.modal__body__country {
   margin-bottom: 0.5rem;
   color: #696a6d;
   font-size: 0.9rem;
   font-weight: 700;
-  font-family: "Lato", sans-serif;
   order: 1;
+  font-family: "Lato", sans-serif;
 }
 @media (orientation: landscape) and (min-width: 1200px) {
-  .modal__section1__country {
+  .modal__body__country {
     font-size: 1.2rem;
     margin-top: 0.5rem;
   }
 }
-.modal__section1__genre {
+.modal__body__genre {
   margin: 0.5rem 0;
   width: 90%;
+  text-align: center;
   color: #696a6d;
-  font-family: "Lato", sans-serif;
   font-size: 0.8rem;
   font-weight: 700;
-  text-align: center;
   order: 2;
+  font-family: "Lato", sans-serif;
 }
 @media (orientation: landscape) and (min-width: 1200px) {
-  .modal__section1__genre {
+  .modal__body__genre {
     font-size: 1.2rem;
   }
 }
-.modal__section1__img {
+.modal__body__img {
   width: 50%;
   order: 2;
   max-width: 250px;
 }
 @media (orientation: landscape) {
-  .modal__section1__img {
+  .modal__body__img {
     height: 70%;
     width: auto;
     object-fit: cover;
   }
 }
 @media (orientation: landscape) and (min-width: 1200px) {
-  .modal__section1__img {
-    width: 100%;
+  .modal__body__img {
     height: auto;
+    width: 100%;
     object-fit: cover;
   }
 }
-.modal__section1__info {
+.modal__body__info {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -343,23 +569,24 @@ p {
   margin-bottom: 0.8rem;
   order: 3;
 }
-.modal__section1__info > p {
+.modal__body__info > p {
   margin: 0 1rem;
   color: #696a6d;
   font-size: 0.9rem;
   font-weight: 700;
+  order: unset;
   font-family: "Lato", sans-serif;
 }
-.modal__section1__info > p:nth-child(1) {
+.modal__body__info > p:nth-child(1) {
   color: #429b61;
 }
 @media (orientation: landscape) and (min-width: 1200px) {
-  .modal__section1__info > p {
+  .modal__body__info > p {
     font-size: 1.2rem;
     order: 1;
   }
 }
-.modal__section1__btn {
+.modal__body__btn {
   width: 90%;
   max-width: 400px;
   padding: 0.3rem 0;
@@ -371,24 +598,25 @@ p {
   order: 1;
 }
 @media (orientation: landscape) {
-  .modal__section1__btn {
+  .modal__body__btn {
     margin: 1.5rem 0;
     order: 4;
   }
 }
-.modal__section1__btn__text {
-  color: #dfdfdf;
-  font-family: "Lato", sans-serif;
+.modal__body__btn__text {
   margin-left: 1.5rem;
+  color: #dfdfdf;
   font-size: 0.8rem;
   font-weight: 700;
+  order: unset;
+  font-family: "Lato", sans-serif;
 }
 @media (orientation: landscape) and (min-width: 1200px) {
-  .modal__section1__btn__text {
+  .modal__body__btn__text {
     font-size: 1.2rem;
   }
 }
-.modal__section1__btn__triangle {
+.modal__body__btn__triangle {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -399,9 +627,9 @@ p {
   border-width: 6px 0 6px 10.4px;
   border-color: transparent transparent transparent #dfdfdf;
 }
-.modal__section1__directors {
-  margin-top: 0.5rem;
+.modal__body__directors {
   color: #b1aeae;
+  margin-top: 0.2rem;
   width: 90%;
   font-family: "Roboto", sans-serif;
   font-size: 0.7rem;
@@ -409,60 +637,62 @@ p {
   order: 4;
 }
 @media (orientation: landscape) and (min-width: 1200px) {
-  .modal__section1__directors {
+  .modal__body__directors {
     font-size: 1rem;
     margin: 0.5rem 0;
   }
 }
-.modal__section1__details {
+.modal__body__details {
   order: 5;
   width: 90%;
 }
-.modal__section1__summary {
+.modal__body__summary {
   color: #b1aeae;
   margin-top: 0.2rem;
   width: 90%;
   font-family: "Roboto", sans-serif;
   font-size: 0.7rem;
   font-weight: 400;
+  order: unset;
   outline: none;
 }
 @media (orientation: landscape) and (min-width: 1200px) {
-  .modal__section1__summary {
+  .modal__body__summary {
     font-size: 1rem;
     margin: 0.5rem 0;
   }
 }
-.modal__section1__actors {
+.modal__body__actors {
   color: #b1aeae;
   margin-top: 0.2rem;
   width: 90%;
   font-family: "Roboto", sans-serif;
   font-size: 0.7rem;
   font-weight: 400;
+  order: unset;
 }
 @media (orientation: landscape) and (min-width: 1200px) {
-  .modal__section1__actors {
+  .modal__body__actors {
     font-size: 1rem;
     margin: 0.5rem 0;
   }
 }
-.modal__section1__actors--landscape {
+.modal__body__actors--landscape {
+  color: #b1aeae;
+  margin-top: 0.2rem;
+  width: 90%;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 400;
   order: 5;
-  color: #b1aeae;
-  margin-top: 0.2rem;
-  width: 90%;
-  font-family: "Roboto", sans-serif;
-  font-size: 0.7rem;
-  font-weight: 400;
 }
 @media (orientation: landscape) and (min-width: 1200px) {
-  .modal__section1__actors--landscape {
+  .modal__body__actors--landscape {
     font-size: 1rem;
     margin: 0.5rem 0;
   }
 }
-.modal__section1__boxoffice__title {
+.modal__body__boxoffice__title {
   color: #b1aeae;
   margin-top: 0.2rem;
   width: 90%;
@@ -472,25 +702,27 @@ p {
   order: 6;
 }
 @media (orientation: landscape) and (min-width: 1200px) {
-  .modal__section1__boxoffice__title {
+  .modal__body__boxoffice__title {
     font-size: 1rem;
     margin: 0.5rem 0;
   }
 }
-.modal__section1__boxoffice__dollars {
+.modal__body__boxoffice__dollars {
   color: #429b61;
   margin-top: 0.2rem;
   width: 90%;
   font-family: "Roboto", sans-serif;
   font-size: 0.7rem;
   font-weight: 400;
+  order: unset;
 }
 @media (orientation: landscape) and (min-width: 1200px) {
-  .modal__section1__boxoffice__dollars {
+  .modal__body__boxoffice__dollars {
     font-size: 1rem;
+    margin: 0.5rem 0;
   }
 }
-.modal__section1__rated {
+.modal__body__rated {
   color: #b1aeae;
   margin-top: 0.2rem;
   width: 90%;
@@ -500,7 +732,7 @@ p {
   order: 7;
 }
 @media (orientation: landscape) and (min-width: 1200px) {
-  .modal__section1__rated {
+  .modal__body__rated {
     font-size: 1rem;
     margin: 0.5rem 0;
   }
